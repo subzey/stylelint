@@ -20,6 +20,7 @@ export default function (actual) {
       const { params } = atRule
       if (!isAutoprefixable.mediaFeatureName(params)) { return }
       const matches = atRule.toString().match(/[a-z-]+device-pixel-ratio/ig)
+      if (!matches) { return }
       matches.forEach(match => {
         report({
           message: messages.rejected,
